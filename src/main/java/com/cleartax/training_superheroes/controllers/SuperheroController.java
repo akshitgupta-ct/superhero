@@ -72,7 +72,10 @@ public class SuperheroController {
         }
     }
 
+    @PutMapping("/superhero")
+    public void updateSuperhero(){
 
+    }
 
 
 }

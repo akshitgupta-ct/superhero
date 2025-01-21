@@ -55,7 +55,7 @@ public class SuperheroService {
         if (superheroRepository.existsById(id)) {
             superheroRepository.deleteById(id);
         } else {
-            throw new IllegalArgumentException("Document with ID " + id + " does not exist");
+            throw new RuntimeException("Document with ID " + id + " does not exist");
         }
     }
 
@@ -64,7 +64,7 @@ public class SuperheroService {
             if (superheroRepository.existsByName(name)) {
                 superheroRepository.deleteByName(name);
             } else {
-                throw new IllegalArgumentException("Superhero with name " + name + " does not exist");
+                throw new RuntimeException("Superhero with name " + name + " does not exist");
             }
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Error: " + e.getMessage(), e);
@@ -82,7 +82,7 @@ public class SuperheroService {
         if (superheroOptional.isPresent()) {
             return superheroOptional.get();
         } else {
-            throw new IllegalArgumentException("Superhero with name " + name + " does not exist");
+            throw new RuntimeException("Superhero with name " + name + " does not exist");
         }
     }
 
